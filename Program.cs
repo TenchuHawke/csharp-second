@@ -1,12 +1,15 @@
 using System;
+using System.Collections.Generic;
 
-namespace ConsoleApp
-{
-    class Program
-    {
-        static void Main(string[] args)
+namespace ConsoleApp {
+    public class Program {
+        public static void SayHello(string name)
         {
-            Console.WriteLine("Hello World!");
+            System.Console.WriteLine("Hello to you, {0}", name);
         }
+        public static void Main(){
+            SayHello("Jeff");
+        }
+
     }
 }

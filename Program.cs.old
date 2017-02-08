@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp {
+    class Program {
+        static void Main (string [] args) {
+            int [] NumArray = new int [10];
+            for (int i = 0; i < 10; i++) {
+                NumArray [i] = i;
+            }
+            foreach (int item in NumArray) {
+                System.Console.WriteLine (item);
+            }
+            string [] NameArray = new string [] { "Tim", "Martin", "Nikki", "Sara" };
+            foreach (string item in NameArray) {
+                System.Console.WriteLine (item);
+            }
+            bool Switch = new bool ();
+            Switch = true;
+            bool [] BoolArray = new bool [10];
+            for (int i = 0; i < 10; i++) {
+                BoolArray [i] = Switch;
+                Switch = !Switch;
+            }
+            foreach (bool item in BoolArray) {
+                System.Console.WriteLine (item);
+            }
+            int [, ] MDNumberArray = new int [10, 10];
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    MDNumberArray [i, j] = (i + 1) * (j + 1);
+                }
+            }
+            int count = 0;
+            foreach (int item in MDNumberArray) {
+                System.Console.Write (item + "\t");
+                count++;
+                if (count % 10 == 0) {
+                    System.Console.Write ("\n");
+                }
+            }
+            // iceCream list
+            List<string> iceCream = new List<string> ();
+            iceCream.Add ("Vanilla");
+            iceCream.Add ("Chocolate");
+            iceCream.Add ("Rocky Road");
+            iceCream.Add ("Mint Chocolate Chip");
+            iceCream.Add ("Napolean");
+            iceCream.Add ("Phish Food");
+            iceCream.Add ("Cherry Garcia");
+            iceCream.Add ("Orange Sherbert");
+            System.Console.WriteLine (iceCream.Count);
+            foreach (string item in iceCream) {
+                System.Console.WriteLine (item);
+            }
+            iceCream.RemoveAt (2);
+            System.Console.WriteLine (iceCream.Count);
+            foreach (string item in iceCream) {
+                System.Console.WriteLine (item);
+            }
+            // dictionary ice creams
+            Dictionary<string,string> flavors = new Dictionary<string, string>();
+            Random rand = new Random();
+            foreach (string item in NameArray)
+            {
+                int favor = (rand.Next(0,7));
+                flavors.Add(item, iceCream[favor]);
+            }
+            foreach (string item in NameArray)
+            {
+                System.Console.WriteLine(item + ", " + flavors[item]);
+            }
+            // Safely Unboxing
+            List<Object> stuff = new List<Object> ();
+            stuff.Add(7);
+            stuff.Add(28);
+            stuff.Add(-1);
+            stuff.Add(true);
+            stuff.Add("chair");
+            int sum = 0;
+            foreach (object item in stuff)
+            {
+                System.Console.WriteLine(item);
+            }
+            foreach (object item in stuff){
+                if (item is int){
+                    sum = sum + (int) item;
+                }
+            }
+            System.Console.WriteLine("Sum = " + sum);
+}
+}
+}
